@@ -1,0 +1,15 @@
+{
+  "name": "tolly-v3-arc-mainnet-5042-verifier",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reproducible source-to-runtime verifier for the allowlisted Tolly V3 deployment on Arc mainnet (chain 5042)",
+  "type": "module",
+  "packageManager": "pnpm@10.33.4",
+  "scripts": {
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.6.1",
+    "solc": "0.8.26"
+  }
+}

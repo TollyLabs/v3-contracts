@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "chainId": 5042,
+  "source": {
+    "repository": "https://github.com/TollyLabs/tolly.git",
+    "verifiedCommit": "281771fe0f1048c8c89d32e25a408548e3c1052f",
+    "currentMainComparedCommit": "8b88253f56f589dc15b46cc0e53db091a1877314",
+    "sourceFiles": {
+      "contracts/TollyForge.sol": "2cf73d39967e0a4c3ccd0e087bae5d9e5a72d2dc73c805b05faeba71f584185d",
+      "contracts/TollyLens.sol": "e27e37c5bca2e78d19e49807b6c508d65095a5ff56e968b6882df369c289cffa",
+      "contracts/TollyMultiRouter.sol": "5812b97fd80e4f899103e45fc993bc57a45228d880de9c1ebb290e4e1b2e0f8b",
+      "contracts/TollySwapRouter.sol": "acb0e72f63ab143a79e1da5c6d82f765d1475f416d559fa96c88da9155216b74",
+      "contracts/launchpad/TollyFeeLocker.sol": "0da56afd584d18b30f2af6e1cb9dc0a35c321d89d9e73e147d8bfb1576cb8c6c",
+      "contracts/launchpad/TollyHolderVault.sol": "86ca6d8fc7ec3cf1d9e26a4b17156396ca8274a46df94649987ec6c109006c17",
+      "contracts/launchpad/TollyPad.sol": "b168db7773220be193c5c275397370d836f2a4e9a84a93aa7a74b35d5fc25708",
+      "contracts/launchpad/TollyToken.sol": "aae147b4d8243840c9bbc900c25dd8c2d8f13d3e52e90cf2ab3436ec53c5920d",
+      "contracts/launchpad/TollyTreasury.sol": "91008865aeea1195f4726b7b9ef2d847926de6e44b698cae9042a4bddcc76703",
+      "contracts/launchpad/libraries/TickMath.sol": "cd1fea1e7436355381a929ffcd2411d13c263c5c1d9678d4d495365fcb25ba02"
+    }
+  },
+  "compiler": {
+    "version": "0.8.26+commit.8a97fa7a.Emscripten.clang",
+    "evmVersion": "cancun",
+    "optimizer": true,
+    "optimizerRuns": 200,
+    "viaIR": true,
+    "bytecodeHash": "none",
+    "openzeppelinVersion": "5.6.1",
+    "remappings": [
+      ":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/"
+    ]
+  },
+  "rpcs": [
+    {
+      "name": "arc-scan",
+      "url": "https://rpc.arc-scan.org",
+      "headers": {
+        "User-Agent": "tolly-v3-source-verifier/1.0"
+      }
+    },
+    {
+      "name": "tolly-relay",
+      "url": "https://api.tollylabs.com/rpc",
+      "headers": {
+        "User-Agent": "tolly-v3-source-verifier/1.0",
+        "Origin": "https://tollylabs.com"
+      }
+    }
+  ],
+  "contracts": [
+    {
+      "name": "TollyToken",
+      "address": "0xbc43ce8dec648ea298c4275559b81d6261c90b67",
+      "source": "contracts/launchpad/TollyToken.sol",
+      "artifact": "TollyToken",
+      "creationEvidence": {
+        "kind": "internal-create2",
+        "parent": "TollyPad",
+        "transactionHash": "0xb87d52c828ee765d3592b64e09919611f30a073e1bd8c2c5b9826690fe149440",
+        "parentAddress": "0xcad7ee36ac193bf2eddb7b3e2736c5bdb8269c8b",
+        "transactionInputSha256": "993733fc2167648ece28e2a5329640fb427602a5085debdbb4a8fcbb217d149a",
+        "note": "Created by TollyPad.createToken; no top-level creation calldata exists in eth_getTransactionByHash."
+      },
+      "immutables": [
+        {"name": "pad", "type": "address", "value": "0xcad7ee36ac193bf2eddb7b3e2736c5bdb8269c8b"},
+        {"name": "maxWallet", "type": "uint256", "value": "30000000000000000000000000"},
+        {"name": "antiSnipeDeadline", "type": "uint256", "value": "1785710996"}
+      ]
+    },
+    {
+      "name": "TollyPad",
+      "address": "0xcad7ee36ac193bf2eddb7b3e2736c5bdb8269c8b",
+      "source": "contracts/launchpad/TollyPad.sol",
+      "artifact": "TollyPad",
+      "creation": {
+        "transactionHash": "0x1183fd2a8633ccab28805c11a95f9b7ffa78107d6a565d6bb1a33c9def87b509",
+        "constructorArguments": ["5000000000", "2500000000000000000", "300", "0xf0db7b58379503491d857dB50AC9ece64c653918", "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377", "0x3600000000000000000000000000000000000000", "0xe740d161461d48722bCCc761C6F4E26778c87683", "[]"],
+        "argumentsEncoded": "0x000000000000000000000000000000000000000000000000000000012a05f20000000000000000000000000000000000000000000000000022b1c8c1227a0000000000000000000000000000000000000000000000000000000000000000012c000000000000000000000000f0db7b58379503491d857db50ac9ece64c65391800000000000000000000000039654a85a4c05127f5fd6ed22caec077a0fb13770000000000000000000000003600000000000000000000000000000000000000000000000000000000000000e740d161461d48722bccc761c6f4e26778c8768300000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "immutables": [
+        {"name": "targetStartFdvQuoteRaw", "type": "uint256", "value": "5000000000"},
+        {"name": "targetTopFdvQuoteRaw", "type": "uint256", "value": "2500000000000000000"},
+        {"name": "actualStartFdv", "type": "uint256", "value": "4995430232"},
+        {"name": "actualTopFdv", "type": "uint256", "value": "2519992110970981223"},
+        {"name": "tickFloor", "type": "int24", "value": "-398400"},
+        {"name": "tickCeil", "type": "int24", "value": "-198000"},
+        {"name": "antiSnipeSeconds", "type": "uint256", "value": "300"},
+        {"name": "v3Factory", "type": "address", "value": "0xf0db7b58379503491d857dB50AC9ece64c653918"},
+        {"name": "positionManager", "type": "address", "value": "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377"},
+        {"name": "quote", "type": "address", "value": "0x3600000000000000000000000000000000000000"},
+        {"name": "locker", "type": "address", "value": "0xe20e4297759597da75c8998ee76ec900600ad920"}
+      ]
+    },
+    {
+      "name": "TollyFeeLocker",
+      "address": "0xe20e4297759597da75c8998ee76ec900600ad920",
+      "source": "contracts/launchpad/TollyFeeLocker.sol",
+      "artifact": "TollyFeeLocker",
+      "creationEvidence": {
+        "kind": "internal-create",
+        "parent": "TollyPad constructor",
+        "transactionHash": "0x1183fd2a8633ccab28805c11a95f9b7ffa78107d6a565d6bb1a33c9def87b509",
+        "parentAddress": null,
+        "transactionInputSha256": "aa3025be61b51fcac5f2f3bec96e7f5acc9227194c7f09f9b2215eae79d1e648",
+        "note": "Created inside the verified TollyPad constructor."
+      },
+      "immutables": [
+        {"name": "pad", "type": "address", "value": "0xcad7ee36ac193bf2eddb7b3e2736c5bdb8269c8b"},
+        {"name": "positionManager", "type": "address", "value": "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377"},
+        {"name": "quote", "type": "address", "value": "0x3600000000000000000000000000000000000000"}
+      ]
+    },
+    {
+      "name": "TollyFurnace",
+      "address": "0xe60483df8bb33dbe7c50c47b440e957eb65614c3",
+      "source": "contracts/TollyForge.sol",
+      "artifact": "TollyFurnace",
+      "creation": {
+        "transactionHash": "0x9aef71037f38f7e6e9505642e6402195222526c4c3bcf0a2e84e05226080ad20",
+        "constructorArguments": ["0x3600000000000000000000000000000000000000", "0xBc43CE8DEc648EA298C4275559b81D6261c90b67", "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77", "10000", "0xf0db7b58379503491d857dB50AC9ece64c653918"],
+        "argumentsEncoded": "0x0000000000000000000000003600000000000000000000000000000000000000000000000000000000000000bc43ce8dec648ea298c4275559b81d6261c90b6700000000000000000000000053bf6b0684ec7ef91e1387da3d1a1769bc5a6f770000000000000000000000000000000000000000000000000000000000002710000000000000000000000000f0db7b58379503491d857db50ac9ece64c653918"
+      },
+      "immutables": [
+        {"name": "weth", "type": "address", "value": "0x3600000000000000000000000000000000000000"},
+        {"name": "tolly", "type": "address", "value": "0xbc43ce8dec648ea298c4275559b81d6261c90b67"},
+        {"name": "router", "type": "address", "value": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77"},
+        {"name": "tollyPoolFee", "type": "uint24", "value": "10000"},
+        {"name": "tollyPool", "type": "address", "value": "0x162df51c504e7b8321e07387932f333d9be16a72"},
+        {"name": "tollyIsToken0", "type": "bool", "value": false}
+      ]
+    },
+    {
+      "name": "TollyHolderVault",
+      "address": "0x150bf8f4087d50da1081365e4a28d7912045a8f4",
+      "source": "contracts/launchpad/TollyHolderVault.sol",
+      "artifact": "TollyHolderVault",
+      "creation": {
+        "transactionHash": "0x5956f9268b65e22e9f8f8b63c90c266646562f1e639de97d75a484db912e4de2",
+        "constructorArguments": ["0xe740d161461d48722bCCc761C6F4E26778c87683"],
+        "argumentsEncoded": "0x000000000000000000000000e740d161461d48722bccc761c6f4e26778c87683"
+      },
+      "immutables": [
+        {"name": "setter", "type": "address", "value": "0xe740d161461d48722bCCc761C6F4E26778c87683"}
+      ]
+    },
+    {
+      "name": "TollyTreasury",
+      "address": "0xa00c3a33bcb68856f9fd86003e17f76a733fc355",
+      "source": "contracts/launchpad/TollyTreasury.sol",
+      "artifact": "TollyTreasury",
+      "creation": {
+        "transactionHash": "0xefdd857794930fa6c7b8bcae4377ba490480aeaf764b144e2f93b91ce63f2a6b",
+        "constructorArguments": ["0xe740d161461d48722bCCc761C6F4E26778c87683"],
+        "argumentsEncoded": "0x000000000000000000000000e740d161461d48722bccc761c6f4e26778c87683"
+      },
+      "immutables": []
+    },
+    {
+      "name": "TollyLens",
+      "address": "0xcb249e9613123ad57dc438d5393e471c00020959",
+      "source": "contracts/TollyLens.sol",
+      "artifact": "TollyLens",
+      "creation": {
+        "transactionHash": "0xd5e9b8383e8b38d8a15903627b4e487a022a0999e4e4f12cd98c52cfc474a477",
+        "constructorArguments": ["0x04b8A7AeaFCe846aCD3838Ad5961787810339db1", "0xe60483DF8bb33dBe7C50c47b440E957eb65614c3"],
+        "argumentsEncoded": "0x00000000000000000000000004b8a7aeafce846acd3838ad5961787810339db1000000000000000000000000e60483df8bb33dbe7c50c47b440e957eb65614c3"
+      },
+      "immutables": [
+        {"name": "deployer", "type": "address", "value": "0x04b8a7aeafce846acd3838ad5961787810339db1"},
+        {"name": "furnace", "type": "address", "value": "0xe60483df8bb33dbe7c50c47b440e957eb65614c3"}
+      ]
+    },
+    {
+      "name": "TollyForgeDeployer",
+      "address": "0x04b8a7aeafce846acd3838ad5961787810339db1",
+      "source": "contracts/TollyForge.sol",
+      "artifact": "TollyForgeDeployer",
+      "creation": {
+        "transactionHash": "0x364c2dc2e4ce7fe694a367c8c08c432e84cc90b2975f3c8cea1d5963e2e27bf3",
+        "constructorArguments": ["0x3600000000000000000000000000000000000000", "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77", "0xBc43CE8DEc648EA298C4275559b81D6261c90b67", "0xe60483DF8bb33dBe7C50c47b440E957eb65614c3", "0xf0db7b58379503491d857dB50AC9ece64c653918", "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377", "0x0000000000000000000000000000000000000000", "500000", "20000", "true"],
+        "argumentsEncoded": "0x000000000000000000000000360000000000000000000000000000000000000000000000000000000000000053bf6b0684ec7ef91e1387da3d1a1769bc5a6f77000000000000000000000000bc43ce8dec648ea298c4275559b81d6261c90b67000000000000000000000000e60483df8bb33dbe7c50c47b440e957eb65614c3000000000000000000000000f0db7b58379503491d857db50ac9ece64c65391800000000000000000000000039654a85a4c05127f5fd6ed22caec077a0fb13770000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007a1200000000000000000000000000000000000000000000000000000000000004e200000000000000000000000000000000000000000000000000000000000000001"
+      },
+      "immutables": [
+        {"name": "weth", "type": "address", "value": "0x3600000000000000000000000000000000000000"},
+        {"name": "router", "type": "address", "value": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77"},
+        {"name": "tolly", "type": "address", "value": "0xbc43ce8dec648ea298c4275559b81d6261c90b67"},
+        {"name": "furnace", "type": "address", "value": "0xe60483df8bb33dbe7c50c47b440e957eb65614c3"},
+        {"name": "v3Factory", "type": "address", "value": "0xf0db7b58379503491d857dB50AC9ece64c653918"},
+        {"name": "positionManager", "type": "address", "value": "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377"},
+        {"name": "initializer", "type": "address", "value": "0xe740d161461d48722bCCc761C6F4E26778c87683"},
+        {"name": "minProcessBase", "type": "uint256", "value": "500000"},
+        {"name": "gasRefundBase", "type": "uint256", "value": "20000"},
+        {"name": "nativeIsQuote", "type": "bool", "value": true},
+        {"name": "externalResolver", "type": "address", "value": "0x0000000000000000000000000000000000000000"}
+      ]
+    },
+    {
+      "name": "TollyUniversalForge",
+      "address": "0x6619d00e448664ac900f1f512a5b65e8ac358a7b",
+      "source": "contracts/TollyForge.sol",
+      "artifact": "TollyUniversalForge",
+      "creation": {
+        "transactionHash": "0x97c52aca6bb14ea604fd0f2554f0877b9ec17b6d385f3802e213d4d8e7c97054",
+        "constructorArguments": ["0x04b8A7AeaFCe846aCD3838Ad5961787810339db1", "0x3600000000000000000000000000000000000000", "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77", "0xBc43CE8DEc648EA298C4275559b81D6261c90b67", "0xe60483DF8bb33dBe7C50c47b440E957eb65614c3", "0xf0db7b58379503491d857dB50AC9ece64c653918"],
+        "argumentsEncoded": "0x00000000000000000000000004b8a7aeafce846acd3838ad5961787810339db1000000000000000000000000360000000000000000000000000000000000000000000000000000000000000053bf6b0684ec7ef91e1387da3d1a1769bc5a6f77000000000000000000000000bc43ce8dec648ea298c4275559b81d6261c90b67000000000000000000000000e60483df8bb33dbe7c50c47b440e957eb65614c3000000000000000000000000f0db7b58379503491d857db50ac9ece64c653918"
+      },
+      "immutables": [
+        {"name": "deployer", "type": "address", "value": "0x04b8a7aeafce846acd3838ad5961787810339db1"},
+        {"name": "weth", "type": "address", "value": "0x3600000000000000000000000000000000000000"},
+        {"name": "router", "type": "address", "value": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77"},
+        {"name": "tolly", "type": "address", "value": "0xbc43ce8dec648ea298c4275559b81d6261c90b67"},
+        {"name": "furnace", "type": "address", "value": "0xe60483df8bb33dbe7c50c47b440e957eb65614c3"},
+        {"name": "v3Factory", "type": "address", "value": "0xf0db7b58379503491d857dB50AC9ece64c653918"}
+      ]
+    },
+    {
+      "name": "TollyRouterForge",
+      "address": "0xb808e78846205905607a425b329f0bcf8e036fab",
+      "source": "contracts/TollyForge.sol",
+      "artifact": "TollyRouterForge",
+      "creation": {
+        "transactionHash": "0xe19ac15a3ec6632034e24a321b6f3b677129401f54110f51d553e5bc1e04c545",
+        "constructorArguments": ["0x04b8A7AeaFCe846aCD3838Ad5961787810339db1", "0x3600000000000000000000000000000000000000", "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77", "0xe60483DF8bb33dBe7C50c47b440E957eb65614c3", "0xf0db7b58379503491d857dB50AC9ece64c653918", "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377"],
+        "argumentsEncoded": "0x00000000000000000000000004b8a7aeafce846acd3838ad5961787810339db1000000000000000000000000360000000000000000000000000000000000000000000000000000000000000053bf6b0684ec7ef91e1387da3d1a1769bc5a6f77000000000000000000000000e60483df8bb33dbe7c50c47b440e957eb65614c3000000000000000000000000f0db7b58379503491d857db50ac9ece64c65391800000000000000000000000039654a85a4c05127f5fd6ed22caec077a0fb1377"
+      },
+      "immutables": [
+        {"name": "deployer", "type": "address", "value": "0x04b8a7aeafce846acd3838ad5961787810339db1"},
+        {"name": "weth", "type": "address", "value": "0x3600000000000000000000000000000000000000"},
+        {"name": "router", "type": "address", "value": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77"},
+        {"name": "furnace", "type": "address", "value": "0xe60483df8bb33dbe7c50c47b440E957eb65614c3"},
+        {"name": "v3Factory", "type": "address", "value": "0xf0db7b58379503491d857dB50AC9ece64c653918"},
+        {"name": "positionManager", "type": "address", "value": "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377"}
+      ]
+    },
+    {
+      "name": "TollyLiquidityForgeFactory",
+      "address": "0xd988b525960bf069cd2ef869642b8c2a26065cc0",
+      "source": "contracts/TollyForge.sol",
+      "artifact": "TollyLiquidityForgeFactory",
+      "creation": {
+        "transactionHash": "0x1c4ae8cc146ad45576327a7dcdedd3539d67f9accc59e8f66272b7f3f61f853c",
+        "constructorArguments": ["0x04b8A7AeaFCe846aCD3838Ad5961787810339db1", "0x3600000000000000000000000000000000000000", "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77", "0xe60483DF8bb33dBe7C50c47b440E957eb65614c3", "0xf0db7b58379503491d857dB50AC9ece64c653918", "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377"],
+        "argumentsEncoded": "0x00000000000000000000000004b8a7aeafce846acd3838ad5961787810339db1000000000000000000000000360000000000000000000000000000000000000000000000000000000000000053bf6b0684ec7ef91e1387da3d1a1769bc5a6f77000000000000000000000000e60483df8bb33dbe7c50c47b440e957eb65614c3000000000000000000000000f0db7b58379503491d857db50ac9ece64c65391800000000000000000000000039654a85a4c05127f5fd6ed22caec077a0fb1377"
+      },
+      "immutables": [
+        {"name": "deployer", "type": "address", "value": "0x04b8a7aeafce846acd3838ad5961787810339db1"},
+        {"name": "nativeIsQuote", "type": "bool", "value": false},
+        {"name": "weth", "type": "address", "value": "0x3600000000000000000000000000000000000000"},
+        {"name": "router", "type": "address", "value": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77"},
+        {"name": "furnace", "type": "address", "value": "0xe60483df8bb33dbe7c50c47b440e957eb65614c3"},
+        {"name": "v3Factory", "type": "address", "value": "0xf0db7b58379503491d857dB50AC9ece64c653918"},
+        {"name": "positionManager", "type": "address", "value": "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377"}
+      ]
+    },
+    {
+      "name": "TollySwapRouter",
+      "address": "0xcebc2e409a85cfa82b086674e6bc5bed51692777",
+      "source": "contracts/TollySwapRouter.sol",
+      "artifact": "TollySwapRouter",
+      "creation": {
+        "transactionHash": "0x4b91870697ece8041ede085e0384902aed4429378adc7e6cf161b64861301544",
+        "constructorArguments": ["0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77", "0xe60483DF8bb33dBe7C50c47b440E957eb65614c3", "0x3600000000000000000000000000000000000000", "0xCAD7ee36Ac193BF2Eddb7B3E2736C5bdB8269C8B"],
+        "argumentsEncoded": "0x00000000000000000000000053bf6b0684ec7ef91e1387da3d1a1769bc5a6f77000000000000000000000000e60483df8bb33dbe7c50c47b440e957eb65614c30000000000000000000000003600000000000000000000000000000000000000000000000000000000000000cad7ee36ac193bf2eddb7b3e2736c5bdb8269c8b"
+      },
+      "immutables": [
+        {"name": "SWAP_ROUTER", "type": "address", "value": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77"},
+        {"name": "FURNACE", "type": "address", "value": "0xe60483df8bb33dbe7c50c47b440E957eb65614c3"},
+        {"name": "QUOTE", "type": "address", "value": "0x3600000000000000000000000000000000000000"},
+        {"name": "PAD", "type": "address", "value": "0xcad7ee36ac193bf2eddb7b3e2736c5bdb8269c8b"}
+      ]
+    },
+    {
+      "name": "TollyMultiRouter",
+      "address": "0xf28c138a39c234554c847dbef467b073ddbd7451",
+      "source": "contracts/TollyMultiRouter.sol",
+      "artifact": "TollyMultiRouter",
+      "creation": {
+        "transactionHash": "0x3af308934bea4c90c985db70df642d677fca8109607a4a067d7aa95a78ba09fb",
+        "constructorArguments": ["0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77", "0xe60483DF8bb33dBe7C50c47b440E957eb65614c3", "0x3600000000000000000000000000000000000000", "0xCAD7ee36Ac193BF2Eddb7B3E2736C5bdB8269C8B"],
+        "argumentsEncoded": "0x00000000000000000000000053bf6b0684ec7ef91e1387da3d1a1769bc5a6f77000000000000000000000000e60483df8bb33dbe7c50c47b440e957eb65614c30000000000000000000000003600000000000000000000000000000000000000000000000000000000000000cad7ee36ac193bf2eddb7b3e2736c5bdb8269c8b"
+      },
+      "immutables": [
+        {"name": "SWAP_ROUTER", "type": "address", "value": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77"},
+        {"name": "FURNACE", "type": "address", "value": "0xe60483df8bb33dbe7c50c47b440E957eb65614c3"},
+        {"name": "QUOTE", "type": "address", "value": "0x3600000000000000000000000000000000000000"},
+        {"name": "PAD", "type": "address", "value": "0xcad7ee36ac193bf2eddb7b3e2736c5bdb8269c8b"}
+      ]
+    },
+    {
+      "name": "TollyBurner",
+      "address": "0x41bd155c88148f29081901809ac04d34b5e66b1d",
+      "source": "contracts/TollyForge.sol",
+      "artifact": "TollyBurner",
+      "creationEvidence": {
+        "kind": "internal-create",
+        "parent": "TollyUniversalForge",
+        "transactionHash": "0xf00de40acc42d6c9b6358572c6fc5b35fa5a0c560be244d11a0f883b8d5f76c7",
+        "parentAddress": "0x6619d00e448664ac900f1f512a5b65e8ac358a7b",
+        "transactionInputSha256": "8861ba8be642ca14763e8fdcb6706aaa6c55c46eb445efe4e797f5b6713babd1",
+        "note": "Created by createUniversalBurner(TOLLY, address(0)); no top-level creation calldata exists."
+      },
+      "immutables": [
+        {"name": "projectToken", "type": "address", "value": "0xbc43ce8dec648ea298c4275559b81d6261c90b67"},
+        {"name": "weth", "type": "address", "value": "0x3600000000000000000000000000000000000000"},
+        {"name": "locker", "type": "address", "value": "0x0000000000000000000000000000000000000000"},
+        {"name": "router", "type": "address", "value": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77"},
+        {"name": "poolFee", "type": "uint24", "value": "10000"},
+        {"name": "projectPool", "type": "address", "value": "0x162df51c504e7b8321e07387932f333d9be16a72"},
+        {"name": "projectIsToken0", "type": "bool", "value": false},
+        {"name": "furnace", "type": "address", "value": "0xe60483df8bb33dbe7c50c47b440E957eb65614c3"},
+        {"name": "tollBps", "type": "uint256", "value": "0"},
+        {"name": "nativeIsQuote", "type": "bool", "value": true}
+      ]
+    }
+  ]
+}

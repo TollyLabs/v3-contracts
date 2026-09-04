@@ -1,0 +1,2 @@
+# Keep the exact bytes used by the source and manifest hash checks on Windows too.
+* text=auto eol=lf
