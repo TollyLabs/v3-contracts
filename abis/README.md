@@ -16,7 +16,7 @@ creation evidence, and constructor/immutable values for every fixed singleton.
 
 ## Licence boundary
 
-Licensing is assigned **per file** — there is no single licence for the whole
+Licensing is assigned **per file** - there is no single licence for the whole
 repo. Several sources (`TollyForge.sol` except its `FullMath` library,
 `TollySwapRouter.sol`, `TollyMultiRouter.sol`, `TollyFeeLocker.sol`,
 `TollyHolderVault.sol`, `TollyTreasury.sol`) are Business Source License 1.1
@@ -49,28 +49,28 @@ These have no fixed deployment. Each is created on-chain by a factory; you
 discover instances by indexing the factory's creation event, then attach the
 matching class ABI below to each discovered address. The deployment JSON records
 one **example** address for TollyToken (the TOLLY token itself) and one for
-TollyBurner (an example burner) — treat both as examples, not registries.
+TollyBurner (an example burner) - treat both as examples, not registries.
 
 | Contract | Source file | ABI file | Role | Deployment (discover via) |
 | --- | --- | --- | --- | --- |
-| TollyToken | `contracts/launchpad/TollyToken.sol` | [`./TollyToken.json`](./TollyToken.json) | ERC-20 launched token (anti-snipe + max-wallet at launch) | per-token instance — discover via `TollyPad.TokenCreated` / `TollyPad.Launched`. Example: `0xbc43ce8dec648ea298c4275559b81d6261c90b67` (TOLLY) |
-| TollyBurner | `contracts/TollyForge.sol` | [`./TollyBurner.json`](./TollyBurner.json) | Per-token buyback-and-burn tool | per-token instance — discover via `TollyUniversalForge.UniversalBurnerCreated` or `TollyForge.BurnerCreated`. Example: `0x41bd155c88148f29081901809ac04d34b5e66b1d` |
-| TollyRevenueRouter | `contracts/TollyForge.sol` | [`./TollyRevenueRouter.json`](./TollyRevenueRouter.json) | Per-token fee router splitting revenue across allocations | per-creator instance — discover via `TollyRouterForge.RouterCreated` |
-| TollyLiquidityForge | `contracts/TollyForge.sol` | [`./TollyLiquidityForge.json`](./TollyLiquidityForge.json) | Per-token LP tool: adds and time-locks liquidity | per-creator instance — discover via `TollyLiquidityForgeFactory.LiquidityForgeCreated` |
-| TollyDcaTreasury | `contracts/TollyForge.sol` | [`./TollyDcaTreasury.json`](./TollyDcaTreasury.json) | Per-token DCA treasury (scheduled buys) | per-creator instance — discover via `TollyUniversalForge.DcaTreasuryCreated` |
-| TollyForge | `contracts/TollyForge.sol` | [`./TollyForge.json`](./TollyForge.json) | Launchpad-Forge burner factory (deployable; **zero instances on mainnet**) | per-creator instance — discover via `TollyForgeDeployer.ForgeDeployed` |
+| TollyToken | `contracts/launchpad/TollyToken.sol` | [`./TollyToken.json`](./TollyToken.json) | ERC-20 launched token (anti-snipe + max-wallet at launch) | per-token instance - discover via `TollyPad.TokenCreated` / `TollyPad.Launched`. Example: `0xbc43ce8dec648ea298c4275559b81d6261c90b67` (TOLLY) |
+| TollyBurner | `contracts/TollyForge.sol` | [`./TollyBurner.json`](./TollyBurner.json) | Per-token buyback-and-burn tool | per-token instance - discover via `TollyUniversalForge.UniversalBurnerCreated` or `TollyForge.BurnerCreated`. Example: `0x41bd155c88148f29081901809ac04d34b5e66b1d` |
+| TollyRevenueRouter | `contracts/TollyForge.sol` | [`./TollyRevenueRouter.json`](./TollyRevenueRouter.json) | Per-token fee router splitting revenue across allocations | per-creator instance - discover via `TollyRouterForge.RouterCreated` |
+| TollyLiquidityForge | `contracts/TollyForge.sol` | [`./TollyLiquidityForge.json`](./TollyLiquidityForge.json) | Per-token LP tool: adds and time-locks liquidity | per-creator instance - discover via `TollyLiquidityForgeFactory.LiquidityForgeCreated` |
+| TollyDcaTreasury | `contracts/TollyForge.sol` | [`./TollyDcaTreasury.json`](./TollyDcaTreasury.json) | Per-token DCA treasury (scheduled buys) | per-creator instance - discover via `TollyUniversalForge.DcaTreasuryCreated` |
+| TollyForge | `contracts/TollyForge.sol` | [`./TollyForge.json`](./TollyForge.json) | Launchpad-Forge burner factory (deployable; **zero instances on mainnet**) | per-creator instance - discover via `TollyForgeDeployer.ForgeDeployed` |
 
 ## How to discover per-token instances
 
 1. Index **`TollyPad.TokenCreated`** (and **`TollyPad.Launched`**) at the Pad
    address for every launched token and its V3 pool.
 2. Index the factory creation events to find that token's tool instances:
-   - **`TollyForgeDeployer.ForgeDeployed`** — a launchpad Forge (none on mainnet).
-   - **`TollyRouterForge.RouterCreated`** — a `TollyRevenueRouter`.
-   - **`TollyLiquidityForgeFactory.LiquidityForgeCreated`** — a `TollyLiquidityForge`.
-   - **`TollyUniversalForge.DcaTreasuryCreated`** — a `TollyDcaTreasury`.
-   - **`TollyUniversalForge.UniversalBurnerCreated`** — a `TollyBurner`.
-   - **`TollyForge.BurnerCreated`** — a `TollyBurner` (from a launchpad Forge).
+   - **`TollyForgeDeployer.ForgeDeployed`** - a launchpad Forge (none on mainnet).
+   - **`TollyRouterForge.RouterCreated`** - a `TollyRevenueRouter`.
+   - **`TollyLiquidityForgeFactory.LiquidityForgeCreated`** - a `TollyLiquidityForge`.
+   - **`TollyUniversalForge.DcaTreasuryCreated`** - a `TollyDcaTreasury`.
+   - **`TollyUniversalForge.UniversalBurnerCreated`** - a `TollyBurner`.
+   - **`TollyForge.BurnerCreated`** - a `TollyBurner` (from a launchpad Forge).
 3. Attach the class ABI above to each discovered address and index its own
    events. Full topic0 hashes and per-event details are in
    [`../INDEXING.md`](../INDEXING.md).
