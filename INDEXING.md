@@ -6,6 +6,8 @@ and track fees, locks, and distributions. Canonical event names, signatures, and
 in [`abis/`](abis/) (see [`abis/README.md`](abis/README.md)); the address map
 and creation evidence are in
 [`deployment/arc-mainnet-5042.json`](deployment/arc-mainnet-5042.json).
+Protocol behaviour, decimals, and how to QA the data live in
+[`INTEGRATION_NOTES.md`](INTEGRATION_NOTES.md).
 
 ## 1. Scope & chain
 
